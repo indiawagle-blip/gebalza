@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pin New Review · LEMON ARCHIVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,800;1,800&family=Pretendard:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfbf7;
+      --lemon-main: #fff275;
+      --lemon-soft: #fffbe3;
+      --text-dark: #232220;
+      --text-muted: #8c887b;
+      --border-subtle: #f0ebd8;
+      --shadow-pin: 0 16px 32px -8px rgba(224, 206, 144, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      background-image: radial-gradient(#faeec8 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+    }
+    header {
+      backdrop-filter: blur(12px);
+      background-color: rgba(253, 251, 247, 0.88);
+      border-bottom: 1.5px solid var(--border-subtle);
+      padding: 16px 28px;
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo-badge {
+      background: var(--lemon-main);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #5c4e00;
+    }
+    .logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.5px;
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 36px auto;
+      padding: 0 24px;
+    }
+    .form-card {
+      background: #ffffff;
+      border-radius: 32px;
+      border: 1.5px solid var(--border-subtle);
+      padding: 40px;
+      box-shadow: var(--shadow-pin);
+    }
+    .form-head {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1.5px solid #f7f3e8;
+    }
+    .form-head h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .form-head p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+    .form-row .form-group {
+      flex: 1;
+    }
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #4a473e;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 13px 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 16px;
+      font-size: 0.95rem;
+      background-color: #faf8f0;
+      color: var(--text-dark);
+      outline: none;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    input:focus, select:focus {
+      border-color: #ffd633;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(255, 230, 0, 0.18);
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1.5px solid #f7f3e8;
+    }
+    .btn-cancel {
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border-subtle);
+      background: #ffffff;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .btn-submit {
+      padding: 12px 30px;
+      border-radius: 999px;
+      border: none;
+      background: var(--text-dark);
+      color: var(--lemon-main);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-submit:disabled {
+      background: #c2bead;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-box">
+        <span class="logo-badge">lemon club</span>
+        <span class="logo-text">archive.</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="form-card">
+      <div class="form-head">
+        <h2>Pin a New Book 🍋</h2>
+        <p>기록한 내용은 구글 스프레드시트에 즉시 저장됩니다.</p>
+      </div>
+
+      <form id="reviewForm">
+        <!-- 책 제목 -->
+        <div class="form-group">
+          <label for="bookTitle">책 제목 *</label>
+          <input type="text" id="bookTitle" required placeholder="책 제목을 입력해 주세요">
+        </div>
+
+        <!-- 저자 & 장르 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookAuthor">저자 *</label>
+            <input type="text" id="bookAuthor" required placeholder="저자 이름">
+          </div>
+          <div class="form-group">
+            <label for="bookGenre">장르 *</label>
+            <select id="bookGenre" required>
+              <option value="">장르 선택</option>
+              <option value="소설">소설</option>
+              <option value="인문/철학">인문/철학</option>
+              <option value="경제/경영">경제/경영</option>
+              <option value="자기계발">자기계발</option>
+              <option value="에세이">에세이</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 완독 일자 (미입력 시 Apps Script에서 오늘 날짜로 자동 처리) -->
+        <div class="form-group">
+          <label for="finishDate">완독 일자 (선택)</label>
+          <input type="date" id="finishDate">
+        </div>
+
+        <div class="form-actions">
+          <a href="index.html" class="btn-cancel">취소</a>
+          <button type="submit" class="btn-submit" id="submitBtn">시트에 저장하기 ✨</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbwvndYo2Tku86kNgo7261nGuXM-lvr0EP9V8wvzibqZ7zdRrDTkU_Qgoeb0Oy6Ia00/exec";
+
+    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+
+      const payload = {
+        title: document.getElementById('bookTitle').value.trim(),
+        author: document.getElementById('bookAuthor').value.trim(),
+        genre: document.getElementById('bookGenre').value,
+        finishDate: document.getElementById('finishDate').value
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '저장 중...';
+
+      try {
+        // CORS 방지를 위해 text/plain 타입으로 전송
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await res.json();
+        if (result.status === 'success') {
+          alert('스프레드시트에 서평이 성공적으로 등록되었습니다! 🍋');
+          window.location.href = 'index.html';
+        } else {
+          alert('저장 실패: ' + result.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = '시트에 저장하기 ✨';
+        }
+      } catch (err) {
+        console.error(err);
+        alert('저장 도중 오류가 발생했습니다.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '시트에 저장하기 ✨';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details · LEMON ARCHIVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,800;1,800&family=Pretendard:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfbf7;
+      --lemon-main: #fff275;
+      --pink-soft: #ffe8ec;
+      --pink-text: #e06d85;
+      --text-dark: #232220;
+      --text-muted: #8c887b;
+      --border-subtle: #f0ebd8;
+      --shadow-pin: 0 16px 32px -8px rgba(224, 206, 144, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.8;
+      background-image: radial-gradient(#faeec8 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+    }
+    header {
+      backdrop-filter: blur(12px);
+      background-color: rgba(253, 251, 247, 0.88);
+      border-bottom: 1.5px solid var(--border-subtle);
+      padding: 16px 28px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .logo-badge {
+      background: var(--lemon-main);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #5c4e00;
+    }
+    .logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.5px;
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .detail-board {
+      background: #ffffff;
+      border-radius: 32px;
+      border: 1.5px solid var(--border-subtle);
+      padding: 44px;
+      box-shadow: var(--shadow-pin);
+    }
+    .detail-head {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-bottom: 36px;
+      border-bottom: 1.5px solid #f7f3e8;
+    }
+    @media (min-width: 640px) {
+      .detail-head {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .cover-art-wrap {
+      width: 100%;
+      max-width: 220px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff9e0;
+      flex-shrink: 0;
+      margin: 0 auto;
+      border: 1.5px solid #faeed0;
+      box-shadow: 0 10px 24px -6px rgba(0,0,0,0.06);
+    }
+    .cover-art-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tag-genre {
+      background: var(--pink-soft);
+      color: var(--pink-text);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+    .book-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.2;
+    }
+    .meta-pills {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .meta-pill {
+      background: #faf7eb;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: #635f52;
+      font-weight: 500;
+    }
+    .meta-pill strong {
+      color: var(--text-dark);
+      margin-left: 4px;
+    }
+
+    .reading-note {
+      padding: 40px 0;
+      font-size: 1.05rem;
+      color: #3b3934;
+      line-height: 1.9;
+    }
+    .quote-box {
+      background: #fffdf2;
+      border-left: 4px solid var(--lemon-main);
+      padding: 20px 24px;
+      border-radius: 0 16px 16px 0;
+      font-style: italic;
+      color: #5c5643;
+      margin: 20px 0;
+    }
+
+    .board-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      border-top: 1.5px solid #f7f3e8;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .back-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .btn-action {
+      background: #ffffff;
+      border: 1.5px solid var(--border-subtle);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    .btn-action:hover {
+      background: var(--lemon-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-box">
+        <span class="logo-badge">lemon club</span>
+        <span class="logo-text">archive.</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="detail-board">
+      <div class="detail-head">
+        <div class="cover-art-wrap">
+          <img id="detailCover" src="" alt="도서 표지">
+        </div>
+        <div class="detail-meta">
+          <span class="tag-genre" id="detailGenre">-</span>
+          <h1 class="book-title" id="detailTitle">-</h1>
+          <div class="meta-pills">
+            <span class="meta-pill">저자 <strong id="detailAuthor">-</strong></span>
+            <span class="meta-pill">완독일자 <strong id="detailDate">-</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reading-note">
+        <div class="quote-box">"기록되지 않은 생각은 사라지지만, 기록된 영감은 다시 자라납니다."</div>
+        <p>이 책은 구글 스프레드시트에 안전하게 보관된 서평 데이터입니다. 나만의 기록을 쌓아가며 서재를 채워보세요. 🍋</p>
+      </div>
+
+      <div class="board-footer">
+        <a href="index.html" class="back-link">← 목록으로 돌아가기</a>
+        <button class="btn-action" onclick="alert('주소가 복사되었습니다 ✨')">링크 복사</button>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    // URL 파라미터에서 데이터 읽어와 화면에 바인딩
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('detailTitle').textContent = params.get('title') || '제목 없음';
+    document.getElementById('detailAuthor').textContent = params.get('author') || '저자 미상';
+    document.getElementById('detailGenre').textContent = params.get('genre') || '기타';
+    document.getElementById('detailDate').textContent = params.get('date') || '-';
+    
+    const coverUrl = params.get('cover') || "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80";
+    document.getElementById('detailCover').src = coverUrl;
+    document.title = (params.get('title') || '서평 상세') + ' · LEMON ARCHIVE';
+  </script>
+</body>
+</html>
